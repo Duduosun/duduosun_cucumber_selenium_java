@@ -10,13 +10,20 @@
 
   Examples:
         | emailaddress           | password  |
+        | desktop1001@salmon.com | Salmon01  |
+        | desktop1002@salmon.com | Salmon02  |
+        #| sltestteam2@gmail.com | Test12345  |
+        #| sltestteam3@gmail.com | Test12345  |
+        #| sltestteam04@gmail.com | Test12345  |
+        #| sltestteam04@gmail.com | Test12345  |
+
+        #| fmo2701@salmon.com | salmon01 |
+        #| fmo2702@salmon.com | salmon02 |
+        #| fmo2703@salmon.com | salmon03 |
+        #| fmo2704@salmon.com | salmon04 |
+        #| fmo2705@salmon.com | salmon05 |
+
         #| regauto1001@salmon.com | salmon01  |
         #| regauto1002@salmon.com | salmon02  |
         #| regauto1003@salmon.com | salmon03  |
         #| regauto1004@salmon.com | salmon04  |
-
-        | fmo2701@salmon.com | salmon01 |
-        | fmo2702@salmon.com | salmon02 |
-        | fmo2703@salmon.com | salmon03 |
-        | fmo2704@salmon.com | salmon04 |
-        | fmo2705@salmon.com | salmon05 |
