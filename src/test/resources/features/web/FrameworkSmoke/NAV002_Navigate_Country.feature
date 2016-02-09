@@ -1,4 +1,4 @@
-@FrameworkSmoke
+@FrameworkSmoke - Change Required
   Feature: NAVIGATE COUNTRY - As a user of Selfridges website, I want to navigate to different Shopping Locations
     Scenario Outline: Selfridges Shopping Locations - Countries
       Given Selfridges Home Page

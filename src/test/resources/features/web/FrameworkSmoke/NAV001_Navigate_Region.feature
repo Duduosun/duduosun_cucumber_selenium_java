@@ -1,4 +1,4 @@
-@FrameworkSmoke
+@FrameworkSmoke - Obsolete
   Feature: NAVIGATE REGION - As a user of Selfridges website, I want navigate to all shopping Regions
     Scenario Outline: Selfridges Shopping Regions
       Given Selfridges Home Page
