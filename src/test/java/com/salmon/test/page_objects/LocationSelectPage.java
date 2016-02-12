@@ -15,116 +15,117 @@ public class LocationSelectPage extends PageObject {
     private By countrySelectBody = By.id("pgcountryselectdesktop");
     private By countryFlagWrapper = By.className("country-flag-wrapper");
     private By countrySearch = By.className("countrysearch");
-    private By continueButton = By.className("js-continueButton btnN btnN3 proceed"); //js-continueButton btnN btnN3
-    private By xContinueButton = By.xpath(".//*[@id='main']/div[1]/div[2]/a");
+    private By continueButton = By.cssSelector(".js-continueButton.btnN.btnN3.proceed");
     private By deliveryInformation = By.className("deliverySnippet");
-    private By regionOne = By.xpath(".//*[@id='main']/div[1]/ul/li[1]/h4/span");
-    private By regionTwo = By.xpath(".//*[@id='main']/div[1]/ul/li[2]/h4/span");
-    private By regionThree = By.xpath(".//*[@id='main']/div[1]/ul/li[3]/h4/span");
-    private By regionFour = By.xpath(".//*[@id='main']/div[1]/ul/li[4]/h4/span");
-    private By regionFive = By.xpath(".//*[@id='main']/div[1]/ul/li[5]/h4/span");
 
-    private By regionOneCountries = By.xpath(".//*[@id='main']/div[1]/ul/li[1]");
-    private By regionTwoCountries = By.xpath(".//*[@id='main']/div[1]/ul/li[2]");
-    private By regionThreeCountries = By.xpath(".//*[@id='main']/div[1]/ul/li[3]");
-    private By regionFourCountries = By.xpath(".//*[@id='main']/div[1]/ul/li[4]");
-    private By regionFiveCountries = By.xpath(".//*[@id='main']/div[1]/ul/li[5]");
+    private By regions = By.cssSelector(".regions");
+    private By countryAustralia = By.cssSelector(".flag.AU");
+    private By countryCanada = By.cssSelector(".flag.CA");
+    private By countryChina = By.cssSelector(".flag.CN");
+    private By countryFrance = By.cssSelector(".flag.FR");
+    private By countryGermany = By.cssSelector(".flag.DE");
+    private By countryHongKong = By.cssSelector(".flag.HK");
+    private By countryIreland = By.cssSelector(".flag.IE");
+    private By countryItaly = By.cssSelector(".flag.IT");
+    private By countryJapan = By.cssSelector(".flag.JP");
+    private By countryKuwait = By.cssSelector(".flag.KW");
+    private By countryMacau = By.cssSelector(".flag.MO");
+    private By countryNetherlands = By.cssSelector(".flag.NL");
+    private By countryQatar = By.cssSelector(".flag.QA");
+    private By countrySaudiArabia = By.cssSelector(".flag.SA");
+    private By countrySingapore = By.cssSelector(".flag.SG");
+    private By countrySpain = By.cssSelector(".flag.ES");
+    private By countryTaiwan = By.cssSelector(".flag.TW");
+    private By countryUnitedArabEmirates = By.cssSelector(".flag.AE");
+    private By countryUnitedKingdom = By.cssSelector(".flag.GB");
+    private By countryUnitedStates = By.cssSelector(".flag.US");
 
-    private By countryOneRegionOne = By.xpath(".//*[@id='main']/div[1]/ul/li[1]/ul/li[1]/a");
-    private By countryTwoRegionOne = By.xpath(".//*[@id='main']/div[1]/ul/li[1]/ul/li[2]/a");
-    private By countryThreeRegionOne = By.xpath(".//*[@id='main']/div[1]/ul/li[1]/ul/li[3]/a");
 
-    private By countryOneRegionTwo = By.xpath(".//*[@id='main']/div[1]/ul/li[2]/ul/li[1]/a");
-    private By countryTwoRegionTwo = By.xpath(".//*[@id='main']/div[1]/ul/li[2]/ul/li[2]/a");
-
-    private By countryOneRegionThree = By.xpath(".//*[@id='main']/div[1]/ul/li[3]/ul/li[1]/a");
-    private By countryTwoRegionThree = By.xpath(".//*[@id='main']/div[1]/ul/li[3]/ul/li[2]/a");
-    private By countryThreeRegionThree = By.xpath(".//*[@id='main']/div[1]/ul/li[3]/ul/li[3]/a");
-    private By countryFourRegionThree = By.xpath(".//*[@id='main']/div[1]/ul/li[3]/ul/li[4]/a");
-
-    //redundant
-    private By countryTwoRegionFour = By.xpath(".//*[@id='main']/div[1]/ul/li[4]/ul/li[2]/a");
-    private By countrySixRegionFour = By.xpath(".//*[@id='main']/div[1]/ul/li[4]/ul/li[6]/a");
-    private By countryFourteenRegionFour = By.xpath(".//*[@id='main']/div[1]/ul/li[4]/ul/li[14]/a");
-    private By countryEighteenRegionFour = By.xpath(".//*[@id='main']/div[1]/ul/li[4]/ul/li[18]/a");
-
-    private By countryOneRegionFive = By.xpath(".//*[@id='main']/div[1]/ul/li[5]/ul/li[1]/a");
-    private By countryTwoRegionFive = By.xpath(".//*[@id='main']/div[1]/ul/li[5]/ul/li[2]/a");
-    private By countryThreeRegionFive = By.xpath(".//*[@id='main']/div[1]/ul/li[5]/ul/li[3]/a");
-    private By countryFourRegionFive = By.xpath(".//*[@id='main']/div[1]/ul/li[5]/ul/li[4]/a");
-
-    public void enterCountry(String country){
-        waitForExpectedElement(countrySearch).sendKeys(country);
-        waitForExpectedElement(countrySearch).sendKeys(Keys.RETURN);
-    }
     public void clickContinue(){
-        waitForExpectedElement(xContinueButton).click();
+        waitForExpectedElement(continueButton).click();
     }
-    public void clickRegion(String region){
+    public void clickFrance(){waitForExpectedElement(countryAustralia).click();}
 
-        switch (region){
-            case "Region One": {
-                waitForExpectedElement(regionOne).click();
-                break;
-            }
-            case "Region Two": {
-                waitForExpectedElement(regionTwo).click();
-                break;
-            }
-            case "Region Three": {
-                waitForExpectedElement(regionThree).click();
-                break;
-            }
-            case "Region Four": {
-                waitForExpectedElement(regionFour).click();
-                break;
-            }
-            case "Region Five": {
-                waitForExpectedElement(regionFive).click();
-                break;
-            }
-        }
-    }
     public void clickCountry(String country){
         switch (country) {
-            case "Country One Region One" : {
-                waitForExpectedElement(countryOneRegionOne).click();
+            case "Australia" : {
+                waitForExpectedElement(countryAustralia).click();
                 break;
             }
-            case "Country Two Region One" : {
-                waitForExpectedElement(countryTwoRegionOne).click();
+            case "Canada" : {
+                waitForExpectedElement(countryCanada).click();
                 break;
             }
-            case "Country Three Region One" : {
-                waitForExpectedElement(countryThreeRegionOne).click();
+            case "China" : {
+                waitForExpectedElement(countryChina).click();
                 break;
             }
-
-
-            case "Country One Region Two" : {
-                waitForExpectedElement(countryOneRegionTwo).click();
+            case "France" : {
+                waitForExpectedElement(countryFrance).click();
                 break;
             }
-            case "Country Two Region Two" : {
-                waitForExpectedElement(countryTwoRegionTwo).click();
+            case "Germany" : {
+                waitForExpectedElement(countryGermany).click();
                 break;
             }
-
-
-            case "Country One Region Three" : {
-                waitForExpectedElement(countryOneRegionThree).click();
+            case "Hong Kong" : {
+                waitForExpectedElement(countryHongKong).click();
                 break;
             }
-            case "Country Two Region Three" : {
-                waitForExpectedElement(countryTwoRegionThree).click();
+            case "Ireland" : {
+                waitForExpectedElement(countryIreland).click();
                 break;
             }
-            case "Country Three Region Three" : {
-                waitForExpectedElement(countryThreeRegionThree).click();
+            case "Italy" : {
+                waitForExpectedElement(countryItaly).click();
                 break;
             }
-            case "Country Four Region Three" : {
-                waitForExpectedElement(countryFourRegionThree).click();
+            case "Japan" : {
+                waitForExpectedElement(countryJapan).click();
+                break;
+            }
+            case "Kuwait" : {
+                waitForExpectedElement(countryKuwait).click();
+                break;
+            }
+            case "Macau" : {
+                waitForExpectedElement(countryMacau).click();
+                break;
+            }
+            case "Netherlands " : {
+                waitForExpectedElement(countryNetherlands).click();
+                break;
+            }
+            case "Qatar " : {
+                waitForExpectedElement(countryQatar).click();
+                break;
+            }
+            case "Saudi Arabia" : {
+                waitForExpectedElement(countrySaudiArabia).click();
+                break;
+            }
+            case "Singapore" : {
+                waitForExpectedElement(countrySingapore).click();
+                break;
+            }
+            case "Spain" : {
+                waitForExpectedElement(countrySpain).click();
+                break;
+            }
+            case "Taiwan" : {
+                waitForExpectedElement(countryTaiwan).click();
+                break;
+            }
+            case "UAE" : {
+                waitForExpectedElement(countryUnitedArabEmirates).click();
+                break;
+            }
+            case "UK" : {
+                waitForExpectedElement(countryUnitedKingdom).click();
+                break;
+            }
+            case "USA" : {
+                waitForExpectedElement(countryUnitedStates).click();
                 break;
             }
         }
@@ -138,59 +139,9 @@ public class LocationSelectPage extends PageObject {
     public String stringLocationPageTitle (){
         return locationPageTitle;
     }
-    public String returnRegion(String region){
+    public String returnCountry() {
         String retval = "";
-
-        switch (region){
-            case "Region One": {
-                retval = waitForExpectedElement(regionOne).getText();
-                break;
-            }
-            case "Region Two": {
-                retval = waitForExpectedElement(regionTwo).getText();
-                break;
-            }
-            case "Region Three": {
-                retval = waitForExpectedElement(regionThree).getText();
-                break;
-            }
-            case "Region Four": {
-                retval = waitForExpectedElement(regionFour).getText();
-                break;
-            }
-            case "Region Five": {
-                retval = waitForExpectedElement(regionFive).getText();
-                break;
-            }
-        }
-        return retval;
-    }
-    public String returnCountry(String region) {
-
-        String retval = "";
-
-        switch (region) {
-            case "Region One": {
-                retval = waitForExpectedElement(regionOneCountries).getText();
-                break;
-            }
-            case "Region Two": {
-                retval = waitForExpectedElement(regionTwoCountries).getText();
-                break;
-            }
-            case "Region Three": {
-                retval = waitForExpectedElement(regionThreeCountries).getText();
-                break;
-            }
-            case "Region Four": {
-                retval = waitForExpectedElement(regionFourCountries).getText();
-                break;
-            }
-            case "Region Five": {
-                retval = waitForExpectedElement(regionFiveCountries).getText();
-                break;
-            }
-        }
+        retval = waitForExpectedElement(regions).getText();
         return retval;
     }
 }

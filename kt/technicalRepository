@@ -59,6 +59,16 @@ WebDriverHelper.getWebDriver().navigate().refresh();
         }
 
 
+Debugging
+Thread.sleep(1000);
+        WebElement e = WebDriverHelper.getWebDriver().findElement(By.cssSelector(".main #email"));
+        e.click();
+        e.clear();
+        e.sendKeys("success");
+
+        customerLoginPage.emailAddress().click();
+        customerLoginPage.emailAddress().clear();
+
 Backup Properties 06012016
     <properties>
         <cucumber.version>1.2.2</cucumber.version>
@@ -86,3 +96,90 @@ Backup Properties 06012016
         <java-version>1.8</java-version>
         <mysql>5.1.6</mysql>
     </properties>
+
+
+        public String returnRegion(String region){
+            String retval = "";
+
+            switch (region){
+                case "Region One": {
+                    retval = waitForExpectedElement(regionOne).getText();
+                    break;
+                }
+                case "Region Two": {
+                    retval = waitForExpectedElement(regionTwo).getText();
+                    break;
+                }
+                case "Region Three": {
+                    retval = waitForExpectedElement(regionThree).getText();
+                    break;
+                }
+                case "Region Four": {
+                    retval = waitForExpectedElement(regionFour).getText();
+                    break;
+                }
+                case "Region Five": {
+                    retval = waitForExpectedElement(regionFive).getText();
+                    break;
+                }
+            }
+            return retval;
+        }
+        public String returnCountry(String country) {
+
+            String retval = "";
+
+            switch (country) {
+                case "Region One": {
+                    retval = waitForExpectedElement(regions).getText();
+                    break;
+                }
+                case "Region Two": {
+                    retval = waitForExpectedElement(regionTwoCountries).getText();
+                    break;
+                }
+                case "Region Three": {
+                    retval = waitForExpectedElement(regionThreeCountries).getText();
+                    break;
+                }
+                case "Region Four": {
+                    retval = waitForExpectedElement(regionFourCountries).getText();
+                    break;
+                }
+                case "Region Five": {
+                    retval = waitForExpectedElement(regionFiveCountries).getText();
+                    break;
+                }
+            }
+            return retval;
+        }
+
+            public void enterCountry(String country){
+                waitForExpectedElement(countrySearch).sendKeys(country);
+                waitForExpectedElement(countrySearch).sendKeys(Keys.RETURN);
+            } //redundant
+            public void clickRegion(String region){
+
+                switch (region){
+                    case "Region One": {
+                        waitForExpectedElement(regionOne).click();
+                        break;
+                    }
+                    case "Region Two": {
+                        waitForExpectedElement(regionTwo).click();
+                        break;
+                    }
+                    case "Region Three": {
+                        waitForExpectedElement(regionThree).click();
+                        break;
+                    }
+                    case "Region Four": {
+                        waitForExpectedElement(regionFour).click();
+                        break;
+                    }
+                    case "Region Five": {
+                        waitForExpectedElement(regionFive).click();
+                        break;
+                    }
+                }
+            } //redundant

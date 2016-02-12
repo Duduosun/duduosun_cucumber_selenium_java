@@ -37,35 +37,16 @@ public class LocationSelectSteps {
         Assert.assertEquals(locationSelectPage.getCurrentPageTitle(), locationSelectPage.stringLocationPageTitle());
     }
 
-    @And("^User Can Interact with Location Preference Module \"([^\"]*)\"$")
-    public void User_Can_Interact_with_Location_Preference_Module(String module) throws Throwable {
-        locationSelectPage.clickRegion(module);
+    @And("^User Can View Shopping Locations \"([^\"]*)\"$")
+    public void User_Can_View_Shopping_Locations(String country) throws Throwable {
+        assertTrue(locationSelectPage.returnCountry().contains(country));
     }
 
-    @And("^User Can Interact with Location Preference Module \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void User_Can_Interact_with_Location_Preference_Module_and(String region, String regiontext) throws Throwable {
-        locationSelectPage.clickRegion(region);
-        assertEquals(locationSelectPage.returnRegion(region), regiontext);
-        assertTrue(locationSelectPage.returnRegion(region).equals(regiontext));
-    }
-
-    @And("^User Can View Shopping Location \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void User_Can_View_Shopping_Location_and(String region, String country) throws Throwable {
-        locationSelectPage.clickRegion(region);
-        //assertEquals(locationSelectPage.returnCountry(region), country);
-        assertTrue(locationSelectPage.returnCountry(region).contains(country));
-    }
-
-    @And("^User Enter \"([^\"]*)\"$")
-    public void User_Enter(String country) throws Throwable {
-        locationSelectPage.enterCountry(country);
-        locationSelectPage.clickContinue();
-    }
-
-    @And("^User Click \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void User_Click_and(String region, String country) throws Throwable {
-        locationSelectPage.clickRegion(region);
+    @And("^User Click Flag\"([^\"]*)\"$")
+    public void User_Click_Flag(String country) throws Throwable {
         locationSelectPage.clickCountry(country);
+        //locationSelectPage.clickFrance();
         locationSelectPage.clickContinue();
+        selfridgesHomePage.visibleAvatar();
     }
 }

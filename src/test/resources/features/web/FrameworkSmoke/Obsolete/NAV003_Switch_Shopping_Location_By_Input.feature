@@ -1,4 +1,4 @@
-@FrameworkSmoke - Obsolete
+@Obsolete
 Feature: SWITCH SHOPPING LOCATION BY INPUT - As a Selfridges website user,
   I want to switch my shopping location from on Country to another
   Scenario Outline: Select and Switch Shopping Location
