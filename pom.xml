@@ -19,14 +19,22 @@
             </activation>
             <properties>
                 <!-- Application under test-->
-                <!--site.url>http://www.lloydspharmacy.com/</site.url-->
-                <!--site.url>http://www.slfst4p.selfridges.com</site.url-->
+                <!--site.url>http://www.audi.co.uk.1.uat.nativ-systems.com</site.url-->
+                <!--site.url>http://www.audi.co.uk.2.uat.nativ-systems.com</site.url-->
+                <site.url>http://www.audi.co.uk.3.uat.nativ-systems.com</site.url>
+                <!--site.url>http://www.audi.co.uk.4.uat.nativ-systems.com</site.url-->
+                <!--site.url>http://www.audi.co.uk.5.uat.nativ-systems.com</site.url-->
+                <!--site.url>http://www.audi.co.uk.6.uat.nativ-systems.com</site.url-->
+                <!--site.url>http://www.audi.co.uk.prelive.nativ-systems.com</site.url-->
+                <!--site.url>http://www.audi.co.uk/</site.url-->
+                <!--site.url>https://www-uat3.audi-services.co.uk</site.url-->
                 <!--site.url>http://www.slfst2p.selfridges.com</site.url-->
-                <site.url>http://www.slfst3p.selfridges.com</site.url>
+                <!--site.url>http://www.slfst3p.selfridges.com</site.url-->
                 <!--site.url>http://www.slfst4p.selfridges.com</site.url-->
                 <!--site.url>http://http://www.ppt.selfridges.com</site.url-->
                 <!--site.url>http://www.ppt.selfridges.com/GB/en</site.url-->
                 <!--site.url>http://www.selfridges.com</site.url-->
+                <!--site.url>http://www.lloydspharmacy.com/</site.url-->
                 <!-- Service under test-->
                 <api.url>http://www.dulux.com.sg</api.url>
                 <!-- AUT has default desired port-->
