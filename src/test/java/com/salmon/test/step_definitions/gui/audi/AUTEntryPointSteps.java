@@ -1,7 +1,9 @@
 package com.salmon.test.step_definitions.gui.audi;
 
 import com.salmon.test.framework.helpers.UrlBuilder;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 
 /**
  * Created by tfasoyiro on 02/03/2016.
@@ -12,4 +14,5 @@ public class AUTEntryPointSteps {
     public void AUDI_HOME_Page() throws Throwable {
         UrlBuilder.startAtHomePage();
     }
+
 }

@@ -25,10 +25,10 @@ public class AudiCommonPage extends PageObject {
     public void audiCommonVP (){
         waitForExpectedElement(topHeader).isDisplayed();
         waitForExpectedElement(logo).isDisplayed();
-        waitForExpectedElement(audiRangeBottom);
-        waitForExpectedElement(audiFooter);
-        waitForExpectedElement(audiApps);
-        waitForExpectedElement(socialShare);
+        waitForExpectedElement(audiRangeBottom).isDisplayed();
+        waitForExpectedElement(audiFooter).isDisplayed();
+        waitForExpectedElement(audiApps).isDisplayed();
+        waitForExpectedElement(socialShare).isDisplayed();
     }
 
 

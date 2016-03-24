@@ -2,7 +2,9 @@ package com.salmon.test.step_definitions.gui;
 
 
 import com.salmon.test.page_objects.HomePage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.When;
 
 public class HomePageSteps {
 
@@ -21,5 +23,4 @@ public class HomePageSteps {
             homePage.clickSignOutLink();
         }
     }
-
 }

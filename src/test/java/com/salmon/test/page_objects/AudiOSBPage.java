@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
  */
 public class AudiOSBPage extends PageObject {
 
-    private String osbPageTitle = "< Book an appointment with Audi < Owners Area < Audi < Audi UK</";
+    private String osbPageTitle = "OSB < Book an appointment with Audi < Owners Area < Audi < Audi UK";
 
     private By osbBody = By.cssSelector(".ng-scope");
     private By osbOverlay = By.cssSelector(".row.top-level-row.full-width-row.row-background-image");
@@ -26,14 +26,13 @@ public class AudiOSBPage extends PageObject {
     public String stringAudiOSBPageBody (){
         return waitForExpectedElement(osbBody).getText();
     }
-    
+    public Boolean boolOsbForm (){return isElementPresent(osbForm);}
 
     public void closeOverlay (){
         waitForExpectedElement(osbOverlayNo).click();
     }
     public void osbVP(){
         waitForExpectedElement(osbBody).isDisplayed();
-        waitForExpectedElement(osbForm).isDisplayed();
         waitForExpectedElement(audiExperience).isDisplayed();
     }
 
