@@ -23,11 +23,12 @@ public class AudiTyresPage extends PageObject{
     private By inpRegNumber = By.cssSelector("#myaudi-carLookup-registration");
     private By btnFindTyres = By.cssSelector("#addOrder-submitBtn");
     private By ddlSection = By.cssSelector("#filter-width");
-    private By ddlProfile = By.cssSelector("#filter-width");
+    private By ddlProfile = By.cssSelector("#filter-profile");
     private By ddlRimDiameter = By.cssSelector("#filter-size");
     private By ddlLoad = By.cssSelector("#filter-load");
-    private By ddlSpeed = By.cssSelector("#filter-load");
+    private By ddlSpeed = By.cssSelector("#filter-speed");
     private By btnFindTyresSize = By.cssSelector("#find-tyres-by-spec");
+    private By lnkFindOutMore = By.cssSelector(".link-bullet-sm[href*=price]");
 
     public String stringAudiTyresPageTitle (){
         return audiTyresPageTitle;
@@ -44,5 +45,6 @@ public class AudiTyresPage extends PageObject{
         waitForExpectedElement(genuineTyresImage).isDisplayed();
         waitForExpectedElement(priceMatchTyreCreativeImage).isDisplayed();
         elementToBeClickable(btnLocateCentre).isEnabled();
+        elementToBeClickable(lnkFindOutMore).isEnabled();
     }
 }

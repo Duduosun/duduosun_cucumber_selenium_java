@@ -5,17 +5,19 @@ Feature: Book a Service MOT or Repair
 
   @env @osb
   Scenario: Trigger book an appointment
-    Given User Navigate to AUDI HOME page
-    When User Click Book a Service CTA
-    Then User Can Book Appointment with Audi
-    After ScreenshotHook.embedScreenshot(Scenario)
+    Given AUDI HOME Page
+    When User Click Book Service CTA
+    Then Book Appointment AUDI App is triggered
 
   @env @osb
-    Scenario: Nearest centres should be displayed
-    Given User Navigate to AUDI HOME page
-    When User Trigger Book an Appointment with "<VehicleReg>" amd "<Location>"
+    Scenario Outline: : Nearest centres should be displayed
+    Given AUDI HOME Page
+    When User Click Book Service CTA
+    And User Trigger Book an Appointment with "<VehicleReg>" and "<Location>"
     Then User Can View Nearest Centres
-    After ScreenshotHook.embedScreenshot(Scenario)
+
+    Examples:
+      | VehicleReg | Location |
 
   @enr @osb
       Scenario: Change service centre

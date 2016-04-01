@@ -23,6 +23,19 @@ public class ConstantsHelper {
     public String priceTyres = "Tyre specific terms and conditions";
     public String priceTnC = "Terms and conditions";
     public String priceMOT = "More from Audi servicing and MOT";
+    public String tyresFitted = "Get a fully fitted replacement tyre quotation below";
+    public String tyresFind = "Find tyres by vehicle registration";
+    public String tyresTnC = "Tyre specific terms and conditions";
+    public String tyresGenuine = "Audi Genuine Tyres";
+    public String tyresServicePrice = "Audi Service Price Match";
+    public String valueVehicle = "Value your vehicle";
+    public String valueFree = "Free Part-Exchange vehicle estimation in 3 easy steps";
+    public String valueGuidePrice = "estimated guide price";
+    public String stepOne = "1";
+    public String stepTwo = "2";
+    public String stepThree = "3";
+    public String carFound = "We have found a car matching your details";
+
 
 
 

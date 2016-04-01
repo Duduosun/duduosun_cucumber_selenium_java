@@ -74,6 +74,8 @@ public class SignInPage extends PageObject {
         waitForExpectedElement(xCreateAnAccount).click();
     }
     public void clickSignInLink(){waitForExpectedElement(xSignInLink).click();}
+
+    //obsolete
     public void selectTitle(){
         webDriver.findElement(ddlTitle).sendKeys("Mrs");
     }

@@ -25,7 +25,7 @@ public class ValueYourAudiVehiclePage extends PageObject {
     private By lnkLocalAudiCentre = By.cssSelector("#locate-centre");
     private By lnkEstimateTnC = By.cssSelector("#terms-trigger");
 
-    public String stringVehicleValuePage(){
+    public String stringVehicleValuePageTitle(){
         return vehicleValuePageTitle;
     }
     public String stringVehicleValueOverlay(){
