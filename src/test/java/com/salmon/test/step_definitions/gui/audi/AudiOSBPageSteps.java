@@ -8,6 +8,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 /**
@@ -46,13 +47,22 @@ public class AudiOSBPageSteps {
         audiOSBPage.clickLocateAudiCentres();
     }
 
-    @Then("^User Can View Nearest Centres$")
-    public void User_Can_View_Nearest_Centres() throws Throwable {
+    @Then("^User Can View Nearest Centres within \"([^\"]*)\"$")
+    public void User_Can_View_Nearest_Centres_within(String location) throws Throwable {
         assertEquals(audiOSBPage.getCurrentPageTitle(), audiOSBPage.stringAudiOSBPageTitle());
         assertTrue(audiOSBPage.stringAudiOSBPageBody().contains(constantsHelper.carFound));
         audiOSBPage.audiRangeFound();
         audiOSBPage.clickThisIsYourCar();
+        assertTrue(audiOSBPage.stringLocation().equals(location.toUpperCase()));
+    }
 
+    @And("^User Can Change Service Centres with \"([^\"]*)\"$")
+    public void User_Can_Change_Service_Centres_with(String newlocation) throws Throwable {
+        String currentLocation = audiOSBPage.stringLocation();
+        audiOSBPage.newLocationText().sendKeys(newlocation);
+        audiOSBPage.clickFindACentre();
+        assertTrue(audiOSBPage.stringLocation().equals(newlocation.toUpperCase()));
+        assertFalse(audiOSBPage.stringLocation().equals(currentLocation.toUpperCase()));
 
     }
 }

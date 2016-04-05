@@ -17,6 +17,7 @@ public class AudiHomePage extends PageObject {
     private By usedCard = By.cssSelector(".header-bottom.nav.navbar-nav>li>a[href*=audi-approved-used]");
     private By companyFleet = By.cssSelector(".dropdown.yamm-fw.fleet");
     private By owners = By.cssSelector(".header-bottom.nav.navbar-nav>li:nth-of-type(5)");
+    private By stores = By.cssSelector("");
     private By audiRangeCarouselHeader = By.cssSelector(".carouselHeader>div.container");
     private By audiRangeCarousel = By.cssSelector(".row.carouselBg");   //.microfiche-car-link>img[src*=A1_side]
     private By imageWidgetPane = By.cssSelector(".row.top-level-row.top-spacer-30.bottom-spacer-60.row-background.background-none.audiDrivers");
@@ -26,6 +27,7 @@ public class AudiHomePage extends PageObject {
     private By imageWidgetFour = By.cssSelector("a.imageTextWidget>img[src*=icons_AudiTyres]");
     private By imageWidgetFive = By.cssSelector("a.imageTextWidget>img[src*=icons_PriceMatch]");
     private By imageWidgeSix = By.cssSelector("a.imageTextWidget>img[src*=icons_PartExchange]");
+
 
     public String stringAudiHomePageTitle(){
         return homePageTitle;
@@ -44,6 +46,7 @@ public class AudiHomePage extends PageObject {
     public void callToAction(String audicall){
 
         switch (audicall) {
+            //AudiApp CTAs
             case "Book Service": {
                 waitForExpectedElement(imageWidgetOne).click();
                 break;
@@ -68,6 +71,13 @@ public class AudiHomePage extends PageObject {
                 waitForExpectedElement(imageWidgeSix).click();
                 break;
             }
+
+            // Header CTAs
+            case "Stores":{
+                waitForExpectedElement(stores).click();
+                break;
+            }
+
         }
 
     }

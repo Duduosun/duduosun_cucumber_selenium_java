@@ -90,4 +90,11 @@ public class AudiHomePageSteps {
         assertTrue(audiHomePage.stringHomePageBody().contains(constantsHelper.audiCopyRight));
         audiHomePage.callToAction("Part Exchange");
     }
+
+
+    @When("^User Click Stores CTA$")
+    public void User_Click_Stores_CTA() throws Throwable {
+        audiHomePage.callToAction("Stores");
+
+    }
 }

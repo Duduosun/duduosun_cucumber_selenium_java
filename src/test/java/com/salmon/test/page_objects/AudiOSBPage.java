@@ -24,6 +24,9 @@ public class AudiOSBPage extends PageObject {
     private By btnThisIsYourCar = By.cssSelector(".btn.btn-primary.pull-left.btn-lg.ng-scope");
     private By serviceCentre = By.cssSelector(".details-panel.col-xs-9");
     //.panel.panel-default>div[class='panel-heading clearfix'] .details-panel.col-xs-9
+    private By location = By.cssSelector(".pull-right.myAudiExtendedNormal.ng-binding.ng-scope.ng-pristine.ng-valid");
+    private By newLocation = By.cssSelector("#newLocation");
+    private By btnFindACentre = By.cssSelector(".btn.btn-tertiary[type=submit]");
 
     public String stringAudiOSBPageTitle (){
         return osbPageTitle;
@@ -31,13 +34,14 @@ public class AudiOSBPage extends PageObject {
     public String stringAudiOSBPageBody (){
         return waitForExpectedElement(osbBody).getText();
     }
+    public String stringLocation(){ return waitForExpectedElement(location).getText();}
     public Boolean boolOsbForm(){return isElementPresent(osbForm);}
 
     public WebElement registrationNumberText() {
         return waitForExpectedElement(registrationNumber);
     }
-    public WebElement postcodeTownNameText() {
-        return waitForExpectedElement(postcodeTownName);}
+    public WebElement postcodeTownNameText() { return waitForExpectedElement(postcodeTownName);}
+    public WebElement newLocationText(){return waitForExpectedElement(newLocation);}
 
     public void closeOverlay (){
         waitForExpectedElement(osbOverlayNo).click();
@@ -53,5 +57,8 @@ public class AudiOSBPage extends PageObject {
         waitForExpectedElement(audiRangePanel).isDisplayed();
     }
     public void clickThisIsYourCar(){waitForExpectedElement(btnThisIsYourCar).click();}
+    public void clickFindACentre(){waitForExpectedElement(btnFindACentre).click();}
+
+
 
 }
