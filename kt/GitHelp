@@ -1,0 +1,20 @@
+git remote -v
+- List all currently configured remote repositories:
+
+git checkout -b <branchname>
+- Create a new branch and switch to it:
+
+git branch
+- List all branches
+
+git branch -d <branchname>
+- Delete the feature branch:
+
+git remote add orevan https://github.com/Duduosun/orevan_cucumber_selenium_java.git
+- Adding Remote Repositories
+
+git push -u duduosun master
+- This pushes to the remote name duduosun the branch named master
+
+git push origin master
+- This pushes to the remote name origin the branch named master
