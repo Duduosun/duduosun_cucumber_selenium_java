@@ -1,8 +1,8 @@
 ![Salmon](/salmonlogo.png)
 ================================
-Selfridges Test Automation Framework
+My Learning Test Automation Framework
 ================================
-This project is a customised test automation framework for Selfridges Account, which provides structured and standard way of 
+This project is a customised test automation framework for Selfridges, Habitat and Audi, which provides structured and standard way of 
 creating automated test scripts for GUI, Mobile and API level tests across Selfridges projects  
 
 This project is derived from Salmon Test Automation Framework Template   
