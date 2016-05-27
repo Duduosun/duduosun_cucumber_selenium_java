@@ -35,6 +35,7 @@ public class ConstantsHelper {
     public String stepTwo = "2";
     public String stepThree = "3";
     public String carFound = "We have found a car matching your details";
+    public String audiStore = "Audi Store";
 
 
 

@@ -20,7 +20,7 @@ Building Step Definitions
 - Include this command to distinguish between OUR and INCOMING variables
 --- if this command is omitted - the compiler will return java.lang.NullPointerException
 
-
+-- Object Capture
 document.getElementsByClassName('productContainer')[0]
 
 driver.findElement(By.xpath("//input[2]"));
@@ -37,10 +37,23 @@ Overlay
 
 Refresh
 - driver.findElement(By.xpath("//body")).sendKeys(Keys.F5);
-
 WebDriverHelper.getWebDriver().navigate().refresh();
 
+Object Identification Tips
+- An image link - .imageTextWidget>img with more than one matching node
+<img class="" title="" alt="" src="/content/dam/audi/production/Home/Homepage_Heroes_July_2015/icon_BookService.png"/>
+- Use name of image to uniquely identify -- a.imageTextWidget>img[src*=BookService]
+- Capture a link -- .audi_icon_price>a
+- Use attribute value to uniquely identify an object -- .grid.fixed[style*=owners-area]
+- Use index to uniquely identify an object -- .grid-container.section:nth-of-type(2)
+.parsys.grid-container:nth-of-type(2) - not working
+- Use attribute value --- div.col-xs-12>div[id*=get-a-quote]
+- Use parent tag/class to uniquely identify an object -- [class='row grey ng-scope'] .container
 
+
+-- Sample Codes --
+
+    -- Group capture for similar elemenets and individual CTA - e.g. PLP
     public void clickOneOfMany(int position){
         List<WebElement> plpProducts = WebDriverHelper.getWebDriver().findElements(By.cssSelector(""));
         for(WebElement element: plpProducts){
@@ -49,14 +62,44 @@ WebDriverHelper.getWebDriver().navigate().refresh();
         plpProducts.get(position).click();
     }
 
-
-
         public void fillEmailAddress(int oIndex){
             List<WebElement> emailInputBox = getWebDriver().findElements(emailAddress);
                 for (WebElement element: emailInputBox) {
                 emailInputBox.get(oIndex);
                 }
         }
+
+    -- Group capture of different elements and individual CTA for button n labels - e.g. PDP Block
+    public WebElement findSelectedProductBlock(ProductListDetail description) {
+
+        List<WebElement> listOfProducts = visibilityOfAllElementsLocatedBy(productTitles);
+        for (WebElement product : listOfProducts) {
+            if (product.getText().equalsIgnoreCase(description.getProductTitle())) {
+                // LOG.info("Product found : " + product.getText());
+                return product;
+            }
+        }
+        return null;
+    }
+
+        -- Group capture of similar elements and individual CTA for links e.g. Top Level CAT click
+           waitForExpectedElement(bagsAndLeather);
+            visibilityOfAllElementsLocatedBy(allSubcategoryAccessoryLinks).stream()
+                    .filter(categoryElement -> categoryElement.getText()
+                            .equals(subCategoryHeader))
+                    .findFirst().get().click();
+
+
+//mouseover
+    public void scrollAndClick(WebElement webElement) {
+        Point hoverItem = webElement.getLocation();
+
+        clickWithinElementWithXYCoordinates(webElement, hoverItem.getX(), hoverItem.getY());
+        webElement.click();
+
+
+    }
+
 
 
 Debugging
@@ -69,64 +112,8 @@ Thread.sleep(1000);
         customerLoginPage.emailAddress().click();
         customerLoginPage.emailAddress().clear();
 
-Backup Properties 06012016
-    <properties>
-        <cucumber.version>1.2.2</cucumber.version>
-        <selenium.version>2.46.0</selenium.version>
-        <junit.version>4.12</junit.version>
-        <phantomjs.version>1.2.1</phantomjs.version>
-        <slf4jVersion>1.7.7</slf4jVersion>
-        <cucumber-jvm-deps>1.0.3</cucumber-jvm-deps>
-        <picocontainer>2.15</picocontainer>
-        <rest-assured>2.4.1</rest-assured>
-        <commons-io>1.3.2</commons-io>
-        <commons-lang>3.4</commons-lang>
-        <lombok>1.16.4</lombok>
-        <hamcrest-all>1.3</hamcrest-all>
-        <appium-java-client>3.1.0</appium-java-client>
-        <common-db-utils>1.6</common-db-utils>
-        <maven-surefire-plugin>2.17</maven-surefire-plugin>
-        <mojo-exec-maven-plugin>1.2.1</mojo-exec-maven-plugin>
-        <maven-resource-plugin>2.7</maven-resource-plugin>
-        <maven-compiler-plugin>2.5.1</maven-compiler-plugin>
-        <maven-cucumber-reporting>0.0.8</maven-cucumber-reporting>
-        <testng>6.8.21</testng>
-        <utf-8>UTF-8</utf-8>
-        <joda-time>2.5</joda-time>
-        <java-version>1.8</java-version>
-        <mysql>5.1.6</mysql>
-    </properties>
 
-Backup Properties 30032016
-    <properties>
-        <cucumber.version>1.2.2</cucumber.version>
-        <selenium.version>2.48.2</selenium.version>
-        <junit.version>4.12</junit.version>
-        <phantomjs.version>1.2.1</phantomjs.version>
-        <slf4jVersion>1.7.7</slf4jVersion>
-        <cucumber-jvm-deps>1.0.3</cucumber-jvm-deps>
-        <picocontainer>2.15</picocontainer>
-        <rest-assured>2.4.1</rest-assured>
-        <commons-io>1.3.2</commons-io>
-        <commons-lang>3.4</commons-lang>
-        <lombok>1.16.4</lombok>
-        <hamcrest-all>1.3</hamcrest-all>
-        <appium-java-client>3.1.0</appium-java-client>
-        <common-db-utils>1.6</common-db-utils>
-        <maven-surefire-plugin>2.17</maven-surefire-plugin>
-        <mojo-exec-maven-plugin>1.2.1</mojo-exec-maven-plugin>
-        <maven-resource-plugin>2.7</maven-resource-plugin>
-        <maven-compiler-plugin>2.5.1</maven-compiler-plugin>
-        <maven-cucumber-reporting>0.0.8</maven-cucumber-reporting>
-        <testng>6.8.21</testng>
-        <utf-8>UTF-8</utf-8>
-        <joda-time>2.5</joda-time>
-        <java-version>1.8</java-version>
-        <mysql>5.1.6</mysql>
-    </properties>
-
-
-
+-- Reusable Codes
         public String returnRegion(String region){
             String retval = "";
 
@@ -187,6 +174,8 @@ Backup Properties 30032016
                 waitForExpectedElement(countrySearch).sendKeys(country);
                 waitForExpectedElement(countrySearch).sendKeys(Keys.RETURN);
             } //redundant
+
+
             public void clickRegion(String region){
 
                 switch (region){
@@ -212,3 +201,8 @@ Backup Properties 30032016
                     }
                 }
             } //redundant
+
+
+
+
+

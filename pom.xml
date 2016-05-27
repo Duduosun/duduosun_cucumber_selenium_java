@@ -26,7 +26,8 @@
                 <!--site.url>http://www.audi.co.uk.5.uat.nativ-systems.com</site.url-->
                 <!--site.url>http://www.audi.co.uk.6.uat.nativ-systems.com</site.url-->
                 <!--site.url>http://www.audi.co.uk.prelive.nativ-systems.com</site.url-->
-                <site.url>http://www.audi.co.uk/</site.url>
+                <!--site.url>http://www.audi.co.uk/</site.url-->
+                <site.url>http://audi-magento-systest.salmon.com/</site.url>
                 <!--site.url>https://www-uat3.audi-services.co.uk</site.url-->
                 <!--site.url>http://www.slfst2p.selfridges.com</site.url-->
                 <!--site.url>http://www.slfst3p.selfridges.com</site.url-->

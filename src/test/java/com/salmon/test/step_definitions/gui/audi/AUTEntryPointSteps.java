@@ -15,4 +15,9 @@ public class AUTEntryPointSteps {
         UrlBuilder.startAtHomePage();
     }
 
+
+    @Given("^AUDI Ecommerce Page$")
+    public void AUDI_Ecommerce_Page() throws Throwable {
+        UrlBuilder.startAtHomePage();
+    }
 }

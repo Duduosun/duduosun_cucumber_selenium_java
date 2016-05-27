@@ -8,7 +8,6 @@ Feature: Access all Audi Applications
 
   @env @audiappcta
     Scenario: Book Service and MOT
-
     When User Click Book Service CTA
     Then Book Appointment AUDI App is triggered
 

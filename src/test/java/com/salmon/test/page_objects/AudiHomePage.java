@@ -27,6 +27,7 @@ public class AudiHomePage extends PageObject {
     private By imageWidgetFour = By.cssSelector("a.imageTextWidget>img[src*=icons_AudiTyres]");
     private By imageWidgetFive = By.cssSelector("a.imageTextWidget>img[src*=icons_PriceMatch]");
     private By imageWidgeSix = By.cssSelector("a.imageTextWidget>img[src*=icons_PartExchange]");
+    private By imageWidgetBlock = By.cssSelector(".imageTextWidget>img");
 
 
     public String stringAudiHomePageTitle(){
@@ -80,6 +81,12 @@ public class AudiHomePage extends PageObject {
 
         }
 
+    }
+
+    public void callImageWidgetToAction(String audiservice){
+        visibilityOfAllElementsLocatedBy(imageWidgetBlock).stream()
+                .filter(categoryElement -> categoryElement.getText().equals(audiservice))
+                .findFirst().get().click();
     }
 
 }

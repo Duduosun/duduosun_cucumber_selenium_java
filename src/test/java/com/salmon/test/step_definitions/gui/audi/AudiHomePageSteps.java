@@ -94,7 +94,9 @@ public class AudiHomePageSteps {
 
     @When("^User Click Stores CTA$")
     public void User_Click_Stores_CTA() throws Throwable {
+        assertTrue(audiCommonPage.stringFooter().contains(constantsHelper.audiStore));
         audiHomePage.callToAction("Stores");
+        audiHomePage.callImageWidgetToAction("Stores");
 
     }
 }
