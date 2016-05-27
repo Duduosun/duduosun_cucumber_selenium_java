@@ -19,3 +19,4 @@ FrameworkTemplateREADME.md
 
 - \SelfridgesAutomationFramework\master_cucumber_testng\kt\FrameworkTemplateREADME.md
 - Git branching error
+- Push this to GitHub Only
