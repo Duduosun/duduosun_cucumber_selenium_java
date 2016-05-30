@@ -25,7 +25,7 @@ public class AudiProductPage extends PageObject {
     private By productThumbnail = By.cssSelector(".fotorama__nav.fotorama__nav--thumbs");
     private By productTAB = By.cssSelector(".product.data.items");
     private By productInfo = By.cssSelector(".product-info-main");
-    private By productName = By.cssSelector(".base");
+    private By pageName = By.cssSelector(".base");
     private By productSKU = By.cssSelector(".product.attibute.sku");
     private By stockAvailable = By.cssSelector(".stock.available>span");
     private By productSwatch = By.cssSelector(".swatch-opt");
@@ -47,6 +47,11 @@ public class AudiProductPage extends PageObject {
     private By wishListBlock = By.cssSelector(".block.block-wishlist");
     private By productList = By.cssSelector(".products.list.items.product-items");
 
+
+    public void checkBreadcrumbs(){
+        waitForExpectedElement(breadcrumbs);
+        waitForExpectedElement(pageName);
+    }
 
     public void callPDPElementToAction(String pdpelement){
         visibilityOfAllElementsLocatedBy(productInfo).stream()

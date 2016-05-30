@@ -1,8 +1,7 @@
-![Salmon](/salmonlogo.png)
 ================================
 My Learning Test Automation Framework
 ================================
-This project is a customised test automation framework for Selfridges, Habitat and Audi, which provides structured and standard way of 
+This project is a customised test automation framework which provides structured and standard way of 
 creating automated test scripts for GUI, Mobile and API level tests across Selfridges projects  
 
 This project is derived from Salmon Test Automation Framework Template   
@@ -16,7 +15,3 @@ This project is derived from Salmon Test Automation Framework Template
 *including knowledge base can be found in 
 FrameworkTemplateREADME.md
 =================
-
-- \SelfridgesAutomationFramework\master_cucumber_testng\kt\FrameworkTemplateREADME.md
-- Git branching error
-- Push this to GitHub Only

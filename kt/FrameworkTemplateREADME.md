@@ -1,9 +1,9 @@
-![Salmon](/salmonlogo.png)
+
 ================================
-Salmon Test Automation Framework - Customised for Selfridges
+Test Automation Framework
 ================================
-This project is a template for Salmon's test automation framework, which provides structured and standard way of 
-creating automated test scripts for GUI, Mobile and API level tests across salmon projects  
+This project is a template for test automation framework, which provides structured and standard way of 
+creating automated test scripts for GUI, Mobile and API level tests 
 
 This is a reusable automation framework that blends together Selenium WebDriver, Appium, Android Driver, RestEasy, SauceLabs and Cucumber JVM (incorporating Gherkin and the BDD 'Given, When Then' testing construct)   
 
@@ -56,25 +56,6 @@ The test automation framework is comprised of following tools and libraries
 *Rest-Assured (optional): - Restful Api framework     
 *PhantomJsDriver, GhostDriver: - Full web stack No browser required supporting headless testing
 
-Contact information
-===================
-Overall Test & Test management support
-------------------------------------------
-Nick Gee
---------
-Head of Testing  
-ngee@salmon.com  
-
-
-Test Automation framework support
-------------------------------------------
-Gaurav Karvir
---------------
-Test Automation Architect  
-gkarvir@salmon.com  
-
-
-
 Machine Configuration
 ====================
 Configure Ubuntu / Windows and setup: -   
@@ -89,7 +70,7 @@ Open Terminal or command line
 cd to the desired folder where the test automation source code needs to be checkout
 
 Run command
-git clone https://github.com/salmon-org/master_cucumber_testng.git
+git clone https://github.com/XYZ/master_cucumber_testng.git
 
 This will download the latest template source code
 
@@ -129,9 +110,9 @@ Follow the Installation Steps
 Plugin configuration for Cucumber Feature
 Open Run Configurations
 Select Cucumber Feature and create one new configuration
-Project: salmonAutomationFramework
-Feature: src/salmonAutomationFramework/src/test/resources/features
-Glue:  com.salmon.test.step_definitions
+Project: XYZAutomationFramework
+Feature: src/XYZAutomationFramework/src/test/resources/features
+Glue:  com.XYZ.test.step_definitions
 Reports:  monochrome, pretty
 
 File >> Setting >>  
@@ -142,14 +123,14 @@ Search for Annotation Processing
 Import Project into Intellij
 ----------------------------
 File>Import Project>
-Browse to SalmonAutomationFramework
+Browse to XYZAutomationFramework
 
 
 
 Import Project into Eclipse
 --------------------------
 File>Import>Maven>Existing Maven Projects>Next>
-Browse to SalmonAutomationFramework
+Browse to XYZAutomationFramework
 Ensure pom.xml is found
 Finish
 
@@ -201,7 +182,7 @@ Compile Build or Run Tests
 
 Command Line
 
-cd to root ot salmonAutomationFramework project directory
+cd to root ot XYZAutomationFramework project directory
 
 To clean and compile the build
 -----------------------------
@@ -275,7 +256,7 @@ These files contains the acceptance criteria which are written in Gherkin Langua
 The feature files are tagged with "@tagname" to group common feature files 
 
 File Extension:  *.feature    
-Location: "/home/dev/src/salmonAutomationFramework/src/test/resources/features"      
+Location: "/home/dev/src/XYZAutomationFramework/src/test/resources/features"      
 Directory:  Separate directories for GUI and API tests, Group common features files in a 
 single directory    
 File Conventions:Meaning full name "WebRegister.feature"
@@ -295,7 +276,7 @@ and the child class can then inherit.
 Every Page  class extends "PageObject.class" to make use of the WebDriver Object and utility functions.  
 In case of Parent and Child Class, Parent class extends PageObject class and child class extends Parent class      
    
-Location: /home/dev/src/salmonAutomationFramework/src/test/java/com/salmon/test/pageobjects
+Location: /home/dev/src/XYZAutomationFramework/src/test/java/com/XYZ/test/pageobjects
 Directory structure: Group common Page Objects classes in a single directory e.g Login Functionality Classes in Login Directory      
 File Conventions:Every Class file ends with Page.class (Homepage.class)  
 
@@ -315,7 +296,7 @@ Step Definitions
 --------------------------------------------------------------------
 Every steps defined in Feature file needs to be implemented in Step Definitions Class
 
-Location: /home/dev/src/salmonAutomationFramework/src/test/java/com/salmon/test/step_definitions 
+Location: /home/dev/src/XYZAutomationFramework/src/test/java/com/XYZ/test/step_definitions 
 Directory structure: Separate directories for GUI and API tests, Group common step definition files in a 
                      single directory    
 File Conventions:Every Class file ends with Steps.class (LoginSteps.class)  
@@ -336,7 +317,7 @@ Run Test Suite
 --------------------------------------------------------------------
 Test Suites are used to run a group of Tests which are tagged and represented in form of Feature files & Scenarios
 
-Location: /home/dev/src/salmonAutomationFramework/src/test/java/com/salmon/test
+Location: /home/dev/src/XYZAutomationFramework/src/test/java/com/XYZ/test
 File Conventions:Every Class file ends with Suite.class (RunWebATSuite.class)  
 
 
@@ -344,7 +325,7 @@ File Conventions:Every Class file ends with Suite.class (RunWebATSuite.class)
             "pretty", "html:target/cucumber-report/runwebat",
             "json:target/cucumber-report/runwebat/cucumber.json",
             "rerun:target/cucumber-report/runwebat/rerun.txt"},
-            glue = "com.salmon.test")
+            glue = "com.XYZ.test")
     public class RunWebATSuite extends AbstractTestNGCucumberTests {
     }
 

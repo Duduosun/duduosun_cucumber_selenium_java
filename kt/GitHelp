@@ -4,6 +4,9 @@ git remote -v
 git checkout -b <branchname>
 - Create a new branch and switch to it:
 
+git checkout <branchname>
+- Switch to branch
+
 git branch
 - List all branches
 

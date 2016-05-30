@@ -397,6 +397,19 @@ public abstract class PageObject {
         builder.perform();
     }
 
+    public void mouseOverExpectedElement(WebElement webElement){
+        Actions acMouse = new Actions(webDriver);
+        acMouse.moveToElement(webElement);
+        acMouse.perform();
+    }
+
+    public void mouseAwayFromElement(WebElement webElement) {
+        Actions acMouse = new Actions(webDriver);
+        acMouse.moveByOffset(200, 200);
+        acMouse.build();
+        acMouse.perform();
+    }
+
     public String getElementByTagNameWithJSExecutor(String tagName) {
         return ((JavascriptExecutor) webDriver).executeScript("return window.getComputedStyle(document.getElementsByTagName('" + tagName + "')").toString();
     }
