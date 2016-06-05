@@ -12,14 +12,22 @@ import java.util.List;
  */
 public class AudiProductPage extends PageObject {
 
-    private String audiPDPageTitle = "";
-    private String audiPLPageTitle = "";
-
     private By breadcrumbs = By.cssSelector(".breadcrumbs");
-    private By header = By.cssSelector(".panel.header");
-    private By footer = By.cssSelector(".footer.content");
+
+    //PLP
+    private By plpMessage = By.cssSelector(".message-success.success.message");
+    private By topToolBar = By.cssSelector(".toolbar.toolbar-products:nth-of-type(2)");
+    private By bottomToolBar = By.cssSelector(".toolbar.toolbar-products:nth-of-type(4)");
+    private By sideBar = By.cssSelector(".sidebar.sidebar-main");
+    private By additionalSideBar = By.cssSelector(".sidebar.sidebar-additional");
+    private By compareBlock = By.cssSelector(".block.block-compare");
+    private By wishListBlock = By.cssSelector(".block.block-wishlist");
+    private By productList = By.cssSelector(".products.list.items.product-items");
+    private By productGridView = By.cssSelector(".products.wrapper.grid.products-grid");
+    private By productListView = By.cssSelector(".products.wrapper.list.products-list");
 
     //PDP
+    private By pdpBlock = By.cssSelector(".product-item-info");
     private By productDetails = By.cssSelector(".column.main");
     private By productImage = By.cssSelector(".fotorama__stage__frame.fotorama_vertical_ratio.fotorama__loaded.fotorama__loaded--img.fotorama__fade-rear.fotorama__loaded--full.fotorama__active");
     private By productThumbnail = By.cssSelector(".fotorama__nav.fotorama__nav--thumbs");
@@ -35,32 +43,34 @@ public class AudiProductPage extends PageObject {
     private By productCompare = By.cssSelector(".action.tocompare");
     private By productEmail = By.cssSelector(".action.mailto.friend");
 
-    //PLP
-    private By plpMainContent = By.cssSelector("#maincontent");
-    private By plpTitle = By.cssSelector(".base");
-    private By plpMessage = By.cssSelector(".message-success.success.message");
-    private By topToolBar = By.cssSelector(".toolbar.toolbar-products:nth-of-type(2)");
-    private By bottomToolBar = By.cssSelector(".toolbar.toolbar-products:nth-of-type(4)");
-    private By sideBar = By.cssSelector(".sidebar.sidebar-main");
-    private By additionalSideBar = By.cssSelector(".sidebar.sidebar-additional");
-    private By compareBlock = By.cssSelector(".block.block-compare");
-    private By wishListBlock = By.cssSelector(".block.block-wishlist");
-    private By productList = By.cssSelector(".products.list.items.product-items");
-
-
-    public void checkBreadcrumbs(){
-        waitForExpectedElement(breadcrumbs);
-        waitForExpectedElement(pageName);
+    public String stringBreadcrumbs(){
+        return waitForExpectedElement(breadcrumbs).getText();
     }
+    public String stringPageName(){
+        return waitForExpectedElement(pageName).getText();
+    }
+
+    public void PLPView(){
+        waitForExpectedElement(productList).isDisplayed();
+    }
+
+    public void oneOfManyProducts(int eproduct){
+        List<WebElement> plpProducts = WebDriverHelper.getWebDriver().findElements(pdpBlock);
+        for(WebElement element: plpProducts){
+            element.click();
+        }
+        plpProducts.get(eproduct).click();
+    }
+
+
 
     public void callPDPElementToAction(String pdpelement){
         visibilityOfAllElementsLocatedBy(productInfo).stream()
                 .filter(categoryElement -> categoryElement.getText().equals(pdpelement))
                 .findFirst().get().click();
     }
-
     public void callPDPElementToView(String pdpelement){
-        visibilityOfAllElementsLocatedBy(productInfo).stream()
+        visibilityOfAllElementsLocatedBy(productGridView).stream()
                 .filter(categoryElement -> categoryElement.getText().equals(pdpelement))
                 .findFirst().get().isDisplayed();
     }

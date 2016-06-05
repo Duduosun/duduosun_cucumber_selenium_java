@@ -14,68 +14,216 @@ public class AudiEcomPage extends PageObject {
 
     private String audiEcommercePageTitle = "Home page";
 
+    private By header = By.cssSelector(".panel.header");
+    private By firstCAT = By.cssSelector("#ui-id-2");
+    private By secondCAT = By.cssSelector("#ui-id-41");
+    private By footer = By.cssSelector(".footer.content");
+
     private By audiEcomBody = By.cssSelector(".cms-home.cms-index-index.page-layout-1column");
     private By topRHS = By.cssSelector(".panel.header");
     private By logo = By.cssSelector(".logo>img");
-
     private By searchInput = By.cssSelector("#search");
     private By searchCTA =By.cssSelector(".action.search");
     private By advancedSearchCTA = By.cssSelector(".action.advanced");
-
-    private By firstCAT = By.cssSelector("#ui-id-2");
-    private By secondCAT = By.cssSelector("#ui-id-41");
-
-    private By footer = By.cssSelector(".footer.content");
-
 
     //keep
     private By ecommCarousel = By.cssSelector("");
     private By heroBanner = By.cssSelector("");
 
-    //action
+    private By offers = By.cssSelector(".level0.nav-1.first.level-top.ui-menu-item");
+    private By accessories = By.cssSelector(".level0.nav-2.level-top.parent.ui-menu-item");
+        private By bags = By.cssSelector("#ui-id-20"); //#ui-id-20
+        private By pen = By.cssSelector("#ui-id-23");
+    private By clothing = By.cssSelector(".level0.nav-3.level-top.parent.ui-menu-item");
+        private By women = By.cssSelector("#ui-id-41");
+        private By alphaConfig = By.cssSelector("#ui-id-42");
+    private By model = By.cssSelector(".level0.nav-4.level-top.parent.ui-menu-item");
+        private By gammaSimple = By.cssSelector("#ui-id-51");
+    private By drivingExp = By.cssSelector(".level0.nav-6.level-top.ui-menu-item");
+    private By alpha = By.cssSelector(".level0.nav-7.level-top.parent.ui-menu-item");
+        private By deltachild = By.cssSelector("#ui-id-57");
+        private By outtaStock = By.cssSelector("#ui-id-60");
+    private By car = By.cssSelector(".level0.nav-14.level-top.parent.ui-menu-item");
+        private By family = By.cssSelector("#ui-id-69>span");
+    private By giftVoucher = By.cssSelector(".level0.nav-15.level-top.parent.ui-menu-item");
+    private By codeStorm = By.cssSelector(".level0.nav-17.last.level-top.ui-menu-item");
 
-    //Hover firstCAT only
-    //Click firstCAT only
-    //Click secondCAT
 
+    public void mouseOverTopCat(String tcat){
+
+        switch (tcat){
+
+            case "Accessories": {
+                waitForExpectedElement(accessories);
+                mouseOverExpectedElement(waitForExpectedElement(accessories));
+                waitForExpectedElement(bags).click();
+                break;
+            }
+
+            case "Clothing" : {
+                waitForExpectedElement(clothing);
+                mouseOverExpectedElement(waitForExpectedElement(clothing));
+                waitForExpectedElement(women).click();
+                break;
+            }
+
+            case "Model Cars" : {
+                waitForExpectedElement(model);
+                mouseOverExpectedElement(waitForExpectedElement(model));
+                waitForExpectedElement(gammaSimple).click();
+                break;
+            }
+
+            case "Alpha Testing": {
+                waitForExpectedElement(alpha);
+                mouseOverExpectedElement(waitForExpectedElement(alpha));
+                waitForExpectedElement(deltachild).click();
+                break;
+            }
+
+            case "Car Accessories" : {
+                waitForExpectedElement(car);
+                mouseOverExpectedElement(waitForExpectedElement(car));
+                waitForExpectedElement(family).click();
+                break;
+            }
+        }
+    }
+
+    public void clickFirstCAT(String tcat) {
+
+        switch (tcat) {
+
+            case "Offers": {
+                waitForExpectedElement(offers).click();
+                break;
+            }
+
+            case "Accessories": {
+                waitForExpectedElement(accessories).click();
+                break;
+            }
+
+            case "Clothing": {
+                waitForExpectedElement(clothing).click();
+                break;
+            }
+
+            case "Model cars": {
+                waitForExpectedElement(model).click();
+                break;
+            }
+
+            case "Audi Driving Experience": {
+                waitForExpectedElement(drivingExp).click();
+                break;
+            }
+
+            case "Alpha Testing": {
+                waitForExpectedElement(alpha).click();
+                break;
+            }
+
+            case "Car Accessories": {
+                waitForExpectedElement(car).click();
+                break;
+            }
+
+            case "Audi gift vouchers": {
+                waitForExpectedElement(giftVoucher).click();
+                break;
+            }
+
+            case "Code Storm Test": {
+                waitForExpectedElement(codeStorm).click();
+                break;
+            }
+        }
+    }
+
+    public void clickSecondCAT(String subcatentry){
+        switch (subcatentry) {
+
+            case "Bags": {
+                waitForExpectedElement(accessories);
+                mouseOverExpectedElement(waitForExpectedElement(accessories));
+                waitForExpectedElement(bags).click();
+                break;
+            }
+            case "Pens": {
+                waitForExpectedElement(accessories);
+                mouseOverExpectedElement(waitForExpectedElement(accessories));
+                waitForExpectedElement(pen).click();
+                break;
+            }
+
+            case "Women" : {
+                waitForExpectedElement(clothing);
+                mouseOverExpectedElement(waitForExpectedElement(clothing));
+                waitForExpectedElement(women).click();
+                break;
+            }
+            case "Alpha Test Configurable" : {
+                waitForExpectedElement(clothing);
+                mouseOverExpectedElement(waitForExpectedElement(clothing));
+                waitForExpectedElement(alphaConfig).click();
+                break;
+            }
+
+            case "Gamma Testing Simple" : {
+                waitForExpectedElement(model);
+                mouseOverExpectedElement(waitForExpectedElement(model));
+                waitForExpectedElement(gammaSimple).click();
+                break;
+            }
+
+            case "Delta Child": {
+                waitForExpectedElement(alpha);
+                mouseOverExpectedElement(waitForExpectedElement(alpha));
+                waitForExpectedElement(deltachild).click();
+                break;
+            }
+            case "Outta Stock": {
+                waitForExpectedElement(alpha);
+                mouseOverExpectedElement(waitForExpectedElement(alpha));
+                waitForExpectedElement(outtaStock).click();
+                break;
+            }
+
+            case "Family" : {
+                waitForExpectedElement(car);
+                mouseOverExpectedElement(waitForExpectedElement(car));
+                waitForExpectedElement(family).click();
+                break;
+            }
+        }
+    }
+
+
+
+
+    public void clickFirstCATs(String catentry){
+        visibilityOfAllElementsLocatedBy(firstCAT).stream()
+                .filter(categoryElement -> categoryElement.getText().equals(catentry))
+                .findFirst().get().click();
+    }
     public void mouseOverFirstCA(WebElement catentry){
         //Point hoverItem = Point
 
         //clickWithinElementWithXYCoordinates(catentry, hoverItem.getX(), hoverItem.getY());
         catentry.click();
     }
-
-    private By accessories = By.cssSelector(".level0.nav-2.level-top.parent.ui-menu-item");
-    private By bags = By.cssSelector("#ui-id-20>span");
-
-    public void mouseOverTopCat(){
-        waitForExpectedElement(accessories);
-        mouseOverExpectedElement(waitForExpectedElement(accessories));
-        waitForExpectedElement(bags).click();
-    }
-
-
     public void getMousOverFirstCAT(String catentry){
         visibilityOfAllElementsLocatedBy(firstCAT).stream()
                 .filter(categoryElement -> categoryElement.getText().equals(catentry))
                 .findFirst().get();
 
     }
-
-    public void mouseActionFirstCAT(){
-
-    }
-
-    public void clickFirstCAT(String catentry){
-        visibilityOfAllElementsLocatedBy(firstCAT).stream()
-                .filter(categoryElement -> categoryElement.getText().equals(catentry))
-                .findFirst().get().click();
-    }
-
-    public void clickSecondCAT(WebElement catentry, String subcatentry){
+    public void clickSecondCATs(String catentry, String subcatentry){
         //mouseOverFirstCT(catentry);
         visibilityOfAllElementsLocatedBy(firstCAT).stream()
                 .filter(categoryElement -> categoryElement.getText().equals(subcatentry))
                 .findFirst().get().click();
+        //visibilityOfAllElementsLocatedBy(firstCAT).stream().findAny()
     }
 }
