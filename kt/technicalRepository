@@ -203,6 +203,59 @@ Thread.sleep(1000);
             } //redundant
 
 
+   public void clickFirstCATs(String tcat) {
+
+        switch (tcat) {
+
+            case "Offers": {
+                waitForExpectedElement(offers).click();
+                break;
+            }
+
+            case "Accessories": {
+                waitForExpectedElement(accessories).click();
+                break;
+            }
+
+            case "Clothing": {
+                waitForExpectedElement(clothing).click();
+                break;
+            }
+
+            case "Model cars": {
+                waitForExpectedElement(model).click();
+                break;
+            }
+
+            case "Audi Driving Experience": {
+                waitForExpectedElement(drivingExp).click();
+                break;
+            }
+
+            case "Alpha Testing": {
+                waitForExpectedElement(alpha).click();
+                break;
+            }
+
+            case "Car Accessories": {
+                waitForExpectedElement(car).click();
+                break;
+            }
+
+            case "Audi gift vouchers": {
+                waitForExpectedElement(giftVoucher).click();
+                break;
+            }
+
+            case "Code Storm Test": {
+                waitForExpectedElement(codeStorm).click();
+                break;
+            }
+        }
+    }
+
+
+
 
 
 

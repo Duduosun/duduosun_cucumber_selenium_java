@@ -8,6 +8,8 @@ import com.salmon.test.framework.helpers.utils.ConstantsHelper;
 import com.salmon.test.page_objects.AudiEcomPage;
 import com.salmon.test.page_objects.AudiProductPage;
 
+import static org.testng.Assert.assertTrue;
+
 /**
  * Created by tfasoyiro on 04/06/2016.
  */
@@ -29,6 +31,16 @@ public class AudiEcomProductPageSteps extends PageObject {
     @And("^Displayed In PLP Grid View$")
     public void Displayed_In_PLP_Grid_View() throws Throwable {
         //audiProductPage.callPDPElementToView("Tola");
-        audiProductPage.oneOfManyProducts(5);
+
+        audiProductPage.oneOfManyProducts(0);
+        audiProductPage.oneOfManyProducts(4);
+        audiProductPage.oneOfManyProducts(7);
+        audiProductPage.oneOfManyProducts(11);
+    }
+
+    @And("^Displayed In PLP Grid View with Product \"([^\"]*)\"$")
+    public void Displayed_In_PLP_Grid_View_with_Product(String eproduct) throws Throwable {
+        audiProductPage.clickOneOfManyProducts(eproduct);
+
     }
 }

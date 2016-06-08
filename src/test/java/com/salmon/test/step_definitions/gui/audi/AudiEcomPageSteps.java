@@ -60,10 +60,16 @@ public class AudiEcomPageSteps {
         assertTrue(audiProductPage.stringBreadcrumbs().contains(tcat));
         assertTrue(audiProductPage.stringPageName().contains(tcat));
         assertTrue(audiProductPage.checkPageTitleContains(tcat));
+        audiProductPage.PLPView();
     }
 
     @When("^User Click Second Level \"([^\"]*)\" CTA$")
     public void User_Click_Second_Level_CTA(String scat) throws Throwable {
         audiEcomPage.clickSecondCAT(scat);
+    }
+
+    @When("^User Click Second Level \"([^\"]*)\" CTA via Top Level \"([^\"]*)\" CTA$")
+    public void User_Click_Second_Level_CTA_via_Top_Level_CTA(String scat, String tcat) throws Throwable {
+        audiEcomPage.clickSecondCAT(scat, tcat);
     }
 }

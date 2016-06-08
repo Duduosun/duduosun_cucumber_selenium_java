@@ -7,6 +7,8 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.Objects;
+
 /**
  * Created by tfasoyiro on 06/04/2016.
  */
@@ -15,8 +17,8 @@ public class AudiEcomPage extends PageObject {
     private String audiEcommercePageTitle = "Home page";
 
     private By header = By.cssSelector(".panel.header");
-    private By firstCAT = By.cssSelector("#ui-id-2");
-    private By secondCAT = By.cssSelector("#ui-id-41");
+    private By firstCAT = By.cssSelector("#ui-id-2>li");
+    private By secondCAT = By.cssSelector(".level0.submenu.ui-menu.ui-widget.ui-widget-content.ui-corner-all>li");
     private By footer = By.cssSelector(".footer.content");
 
     private By audiEcomBody = By.cssSelector(".cms-home.cms-index-index.page-layout-1column");
@@ -49,6 +51,11 @@ public class AudiEcomPage extends PageObject {
     private By codeStorm = By.cssSelector(".level0.nav-17.last.level-top.ui-menu-item");
 
 
+    public void clickFirstCAT(String catentry){
+        visibilityOfAllElementsLocatedBy(firstCAT).stream()
+                .filter(categoryElement -> categoryElement.getText().equals(catentry))
+                .findFirst().get().click();
+    }
     public void mouseOverTopCat(String tcat){
 
         switch (tcat){
@@ -89,58 +96,6 @@ public class AudiEcomPage extends PageObject {
             }
         }
     }
-
-    public void clickFirstCAT(String tcat) {
-
-        switch (tcat) {
-
-            case "Offers": {
-                waitForExpectedElement(offers).click();
-                break;
-            }
-
-            case "Accessories": {
-                waitForExpectedElement(accessories).click();
-                break;
-            }
-
-            case "Clothing": {
-                waitForExpectedElement(clothing).click();
-                break;
-            }
-
-            case "Model cars": {
-                waitForExpectedElement(model).click();
-                break;
-            }
-
-            case "Audi Driving Experience": {
-                waitForExpectedElement(drivingExp).click();
-                break;
-            }
-
-            case "Alpha Testing": {
-                waitForExpectedElement(alpha).click();
-                break;
-            }
-
-            case "Car Accessories": {
-                waitForExpectedElement(car).click();
-                break;
-            }
-
-            case "Audi gift vouchers": {
-                waitForExpectedElement(giftVoucher).click();
-                break;
-            }
-
-            case "Code Storm Test": {
-                waitForExpectedElement(codeStorm).click();
-                break;
-            }
-        }
-    }
-
     public void clickSecondCAT(String subcatentry){
         switch (subcatentry) {
 
@@ -201,27 +156,21 @@ public class AudiEcomPage extends PageObject {
 
 
 
+    public void mouseOverTopCats(String catentry){
 
-    public void clickFirstCATs(String catentry){
         visibilityOfAllElementsLocatedBy(firstCAT).stream()
                 .filter(categoryElement -> categoryElement.getText().equals(catentry))
-                .findFirst().get().click();
+                .findFirst().get().isSelected();
     }
-    public void mouseOverFirstCA(WebElement catentry){
-        //Point hoverItem = Point
+    public void mouseOverFirstCA(WebElement catentry, int x, int y){
+        Point hoverItem = catentry.getLocation();
 
-        //clickWithinElementWithXYCoordinates(catentry, hoverItem.getX(), hoverItem.getY());
+        clickWithinElementWithXYCoordinates(catentry, hoverItem.getX(), hoverItem.getY());
         catentry.click();
     }
-    public void getMousOverFirstCAT(String catentry){
-        visibilityOfAllElementsLocatedBy(firstCAT).stream()
-                .filter(categoryElement -> categoryElement.getText().equals(catentry))
-                .findFirst().get();
-
-    }
-    public void clickSecondCATs(String catentry, String subcatentry){
-        //mouseOverFirstCT(catentry);
-        visibilityOfAllElementsLocatedBy(firstCAT).stream()
+    public void clickSecondCAT(String subcatentry, String catentry){
+        mouseOverTopCat(catentry);
+        visibilityOfAllElementsLocatedBy(secondCAT).stream()
                 .filter(categoryElement -> categoryElement.getText().equals(subcatentry))
                 .findFirst().get().click();
         //visibilityOfAllElementsLocatedBy(firstCAT).stream().findAny()

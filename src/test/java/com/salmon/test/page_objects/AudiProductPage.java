@@ -28,6 +28,7 @@ public class AudiProductPage extends PageObject {
 
     //PDP
     private By pdpBlock = By.cssSelector(".product-item-info");
+    private By pdpProduct = By.cssSelector(".product-item-link");
     private By productDetails = By.cssSelector(".column.main");
     private By productImage = By.cssSelector(".fotorama__stage__frame.fotorama_vertical_ratio.fotorama__loaded.fotorama__loaded--img.fotorama__fade-rear.fotorama__loaded--full.fotorama__active");
     private By productThumbnail = By.cssSelector(".fotorama__nav.fotorama__nav--thumbs");
@@ -52,17 +53,20 @@ public class AudiProductPage extends PageObject {
 
     public void PLPView(){
         waitForExpectedElement(productList).isDisplayed();
+        waitForExpectedElement(pdpBlock).isDisplayed();
+        waitForExpectedElement(pdpProduct).isDisplayed();
     }
 
     public void oneOfManyProducts(int eproduct){
-        List<WebElement> plpProducts = WebDriverHelper.getWebDriver().findElements(pdpBlock);
-        for(WebElement element: plpProducts){
-            element.click();
-        }
+        List<WebElement> plpProducts = WebDriverHelper.getWebDriver().findElements(pdpProduct);
         plpProducts.get(eproduct).click();
     }
 
-
+    public void clickOneOfManyProducts(String plpelement){
+        visibilityOfAllElementsLocatedBy(pdpProduct).stream()
+                .filter(categoryElement -> categoryElement.getText().equals(plpelement))
+                .findFirst().get().click();
+    }
 
     public void callPDPElementToAction(String pdpelement){
         visibilityOfAllElementsLocatedBy(productInfo).stream()
@@ -84,8 +88,4 @@ public class AudiProductPage extends PageObject {
         }
         plpProducts.get(position).click();
     }
-
-
-
-
 }
