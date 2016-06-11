@@ -6,7 +6,7 @@ Feature: Audi product list page
   Background:
     Given AUDI Ecommerce Page
 
-  @ecomerch
+  @eproduct
   Scenario Outline: Navigate Simple Products Default PLP
     When User Click Top Level "<tcat>" CTA
     Then Products List for "<tcat>" is Displayed
@@ -18,7 +18,7 @@ Feature: Audi product list page
       | Accessories | Valve caps with Audi logo |
       | Code Storm Test | Audi 200 quattro Trans Am |
 
-  @ecomerch
+  @eproduct
   Scenario Outline: Navigate Configurable Products Default PLP
     When User Click Top Level "<tcat>" CTA
     Then Products List for "<tcat>" is Displayed
@@ -30,7 +30,7 @@ Feature: Audi product list page
       | Alpha Testing | Baby long sleeve 'face' shirt |
       | Motorsport | Women's S line fleece jacket |
 
-  @ecomerch
+  @eproduct
   Scenario Outline: Navigate Audi Experience Products Default PLP
     When User Click Top Level "<tcat>" CTA
     Then Products List for "<tcat>" is Displayed
@@ -42,7 +42,7 @@ Feature: Audi product list page
       | Code Storm Test | Audi Sport Experience |
       | Audi Driving Experience | Audi Experience Stock Test |
 
-  @ecomerch
+  @eproduct
   Scenario Outline: Navigate Mixed Products Default PLP
     When User Click Top Level "<tcat>" CTA
     Then Products List for "<tcat>" is Displayed
@@ -54,7 +54,7 @@ Feature: Audi product list page
       | Code Storm Test | Audi Sport Introductory Experience |
       | Code Storm Test | Audi Rings lanyard, 3 colours available |
 
-  @ecomerch
+  @eproduct
   Scenario Outline: Navigate Simple Products PLP List View
     When User Click Top Level "<tcat>" CTA
     And Click Switch View CTA
@@ -63,10 +63,11 @@ Feature: Audi product list page
 
     Examples:
       | tcat | eproduct |
-      | Offers | Baby long sleeve 'face' shirt |
-      | Accessories | Valve caps with Audi logo |
-      | Code Storm Test | Audi 200 quattro Trans Am |
-  @ecomerch
+      | Model cars | A3 Cabriolet 1:43 |
+      | Stocking fillers | quattro stylus ballpoint pen |
+      | Baby | Anti-freeze screenwash (500ml) |
+
+  @eproduct
   Scenario Outline: Navigate Configurable Products PLP List View
     When User Click Top Level "<tcat>" CTA
     And Click Switch View CTA
@@ -75,11 +76,11 @@ Feature: Audi product list page
 
     Examples:
       | tcat | eproduct |
-      | Clothing | Children's type C t-shirt |
-      | Alpha Testing | Baby long sleeve 'face' shirt |
-      | Motorsport | Women's S line fleece jacket |
+      | Gifts for her | Women's S line t-shirt |
+      | Gifts for him | Audi Sport bath robe |
+      | Motorsport | Men's S line t-shirt, black |
 
-  @ecomerch
+  @eproduct
   Scenario Outline: Navigate Audi Experience Products PLP List View
     When User Click Top Level "<tcat>" CTA
     And Click Switch View CTA
@@ -88,11 +89,11 @@ Feature: Audi product list page
 
     Examples:
       | tcat | eproduct |
-      | Audi Driving Experience | Quattro Experience |
-      | Code Storm Test | Audi Sport Experience |
       | Audi Driving Experience | Audi Experience Stock Test |
+      | Code Storm Test | Audi Sport Experience |
+      | Audi Driving Experience | Quattro Experience |
 
-  @ecomerch
+  @eproduct
   Scenario Outline: Navigate Mixed Products PLP List View
     When User Click Top Level "<tcat>" CTA
     And Click Switch View CTA
@@ -101,31 +102,6 @@ Feature: Audi product list page
 
     Examples:
       | tcat | eproduct |
-      | Code Storm Test | Audi mini quattro, red |
-      | Code Storm Test | Audi Sport Introductory Experience |
-      | Code Storm Test | Audi Rings lanyard, 3 colours available |
-
-  @ecomerch
-  Scenario Outline: Search Result Products Default PLP
-    When User Search Audi Store with String "<search>"
-    Then Products List for "<search>" is Displayed
-    And Displayed In PLP Grid View with Product "<eproduct>"
-
-    Examples:
-      | search | eproduct |
-      | experience | Quattro Experience |
-      | soft shell jacket | Audi Sport sweat jacket |
-      | mini | Audi mini quattro, red |
-
-  @ecomerch
-  Scenario Outline: Search Result Products PLP List View
-    When User Search Audi Store with String "<search>"
-    And Click Switch View CTA
-    Then Products List for "<search>" is Displayed
-    And Displayed In PLP List View with Product "<eproduct>"
-
-    Examples:
-      | search | eproduct |
-      | experience | Quattro Experience |
-      | soft shell jacket | Audi Sport sweat jacket |
-      | mini | Audi mini quattro, red |
+      | Gifts for him | Audi Sport bath robe |
+      | Gifts for him | Audi Sport Corkscrew |
+      | Gifts for him | Audi Sport Introductory Experience |

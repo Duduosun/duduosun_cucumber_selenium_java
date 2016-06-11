@@ -31,13 +31,14 @@ public class AudiProductPage extends PageObject {
     private By plpListViewClickable = By.cssSelector("#mode-list");
 
     //PDP
+    private By pdpMain = By.cssSelector(".column.main");
     private By pdpBlock = By.cssSelector(".product-item-info");
     private By pdpProduct = By.cssSelector(".product-item-link");
-    private By productDetails = By.cssSelector(".column.main");
-    private By productImage = By.cssSelector(".fotorama__stage__frame.fotorama_vertical_ratio.fotorama__loaded.fotorama__loaded--img.fotorama__fade-rear.fotorama__loaded--full.fotorama__active");
+    private By pdpSegments = By.cssSelector(".column.main>div");
+    private By productImageLHS = By.cssSelector(".product.media");
+    private By productDetailsRHS = By.cssSelector(".product-info-main");
     private By productThumbnail = By.cssSelector(".fotorama__nav.fotorama__nav--thumbs");
-    private By productTAB = By.cssSelector(".product.data.items");
-    private By productInfo = By.cssSelector(".product-info-main");
+    private By productInfoBottom = By.cssSelector(".product.data.items");
     private By pageName = By.cssSelector(".base");
     private By productSKU = By.cssSelector(".product.attibute.sku");
     private By stockAvailable = By.cssSelector(".stock.available>span");
@@ -67,30 +68,6 @@ public class AudiProductPage extends PageObject {
         waitForExpectedElement(pdpBlock).isDisplayed();
         waitForExpectedElement(pdpProduct).isDisplayed();
     }
-
-    public void oneOfManyProducts(int eproduct){
-        List<WebElement> plpProducts = WebDriverHelper.getWebDriver().findElements(pdpProduct);
-        //plpProducts.get(eproduct).click();
-        plpProducts.get(eproduct).isDisplayed();
-    }
-
-    public void clickOneOfManyProducts(String plpelement){
-        visibilityOfAllElementsLocatedBy(pdpProduct).stream()
-                .filter(categoryElement -> categoryElement.getText().equals(plpelement))
-                .findFirst().get().click();
-    }
-
-    public void callPDPElementToAction(String pdpelement){
-        visibilityOfAllElementsLocatedBy(productInfo).stream()
-                .filter(categoryElement -> categoryElement.getText().equals(pdpelement))
-                .findFirst().get().click();
-    }
-    public void callPDPElementToView(String pdpelement){
-        visibilityOfAllElementsLocatedBy(productGridView).stream()
-                .filter(categoryElement -> categoryElement.getText().equals(pdpelement))
-                .findFirst().get().isDisplayed();
-    }
-
     public void plpGridViewActive(){
         waitForExpectedElement(plpGridViewActive).isSelected();
         elementToBeClickable(plpListViewClickable);
@@ -102,6 +79,38 @@ public class AudiProductPage extends PageObject {
     public void clickSwitchViewCTA(){
         waitForExpectedElement(plpListViewClickable).click();
     }
+
+    public void oneOfManyProducts(int eproduct){
+        List<WebElement> plpProducts = WebDriverHelper.getWebDriver().findElements(pdpProduct);
+        plpProducts.get(eproduct).isDisplayed();
+    }
+    public void clickOneOfManyProducts(String plpelement){
+        visibilityOfAllElementsLocatedBy(pdpProduct).stream()
+                .filter(categoryElement -> categoryElement.getText().equals(plpelement))
+                .findFirst().get().click();
+    }
+
+    public void PDPView(){
+        //Image, Thumbnail, Details n Info
+        waitForExpectedElement(productImageLHS).isDisplayed();
+        waitForExpectedElement(productThumbnail).isDisplayed();
+        waitForExpectedElement(productDetailsRHS).isDisplayed();
+        waitForExpectedElement(productInfoBottom).isDisplayed();
+    }
+
+
+    public void callPDPElementToAction(String pdpelement){
+        visibilityOfAllElementsLocatedBy(pdpSegments).stream()
+                .filter(categoryElement -> categoryElement.getText().equals(pdpelement))
+                .findFirst().get().click();
+    }
+    public void callPDPElementToView(String pdpelement){
+        visibilityOfAllElementsLocatedBy(productGridView).stream()
+                .filter(categoryElement -> categoryElement.getText().equals(pdpelement))
+                .findFirst().get().isDisplayed();
+    }
+
+
 
 
     //working with one of many elements

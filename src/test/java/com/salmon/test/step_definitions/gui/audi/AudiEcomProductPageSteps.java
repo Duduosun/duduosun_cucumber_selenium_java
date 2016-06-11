@@ -50,4 +50,16 @@ public class AudiEcomProductPageSteps extends PageObject {
         audiProductPage.plpListViewActive();
         assertTrue(audiProductPage.elementPLPListView().isDisplayed());
     }
+
+    @And("^User Click Simple Product \"([^\"]*)\"$")
+    public void User_Click_Simple_Product(String eproduct) throws Throwable {
+        audiProductPage.clickOneOfManyProducts(eproduct);
+    }
+
+    @Then("^Audi PDP is Displayed with \"([^\"]*)\"$")
+    public void Audi_PDP_is_Displayed_with(String eproduct) throws Throwable {
+        audiProductPage.PDPView();
+        assertTrue(audiProductPage.stringBreadcrumbs().contains(eproduct));
+        assertTrue(audiProductPage.stringPageName().equals(eproduct));
+    }
 }
