@@ -24,7 +24,11 @@ public class AudiProductPage extends PageObject {
     private By wishListBlock = By.cssSelector(".block.block-wishlist");
     private By productList = By.cssSelector(".products.list.items.product-items");
     private By productGridView = By.cssSelector(".products.wrapper.grid.products-grid");
+    private By plpGridViewActive = By.cssSelector(".modes-mode.active.mode-grid");
+    private By plpGridViewClickable = By.cssSelector("#mode-grid");
     private By productListView = By.cssSelector(".products.wrapper.list.products-list");
+    private By plpListViewActive = By.cssSelector(".modes-mode.active.mode-list");
+    private By plpListViewClickable = By.cssSelector("#mode-list");
 
     //PDP
     private By pdpBlock = By.cssSelector(".product-item-info");
@@ -51,6 +55,13 @@ public class AudiProductPage extends PageObject {
         return waitForExpectedElement(pageName).getText();
     }
 
+    public WebElement elementPLPGridView(){
+        return waitForExpectedElement(productGridView);
+    }
+    public WebElement elementPLPListView(){
+        return waitForExpectedElement(productListView);
+    }
+
     public void PLPView(){
         waitForExpectedElement(productList).isDisplayed();
         waitForExpectedElement(pdpBlock).isDisplayed();
@@ -59,7 +70,8 @@ public class AudiProductPage extends PageObject {
 
     public void oneOfManyProducts(int eproduct){
         List<WebElement> plpProducts = WebDriverHelper.getWebDriver().findElements(pdpProduct);
-        plpProducts.get(eproduct).click();
+        //plpProducts.get(eproduct).click();
+        plpProducts.get(eproduct).isDisplayed();
     }
 
     public void clickOneOfManyProducts(String plpelement){
@@ -78,6 +90,19 @@ public class AudiProductPage extends PageObject {
                 .filter(categoryElement -> categoryElement.getText().equals(pdpelement))
                 .findFirst().get().isDisplayed();
     }
+
+    public void plpGridViewActive(){
+        waitForExpectedElement(plpGridViewActive).isSelected();
+        elementToBeClickable(plpListViewClickable);
+    }
+    public void plpListViewActive(){
+        waitForExpectedElement(plpListViewActive).isSelected();
+        elementToBeClickable(plpGridViewClickable);
+    }
+    public void clickSwitchViewCTA(){
+        waitForExpectedElement(plpListViewClickable).click();
+    }
+
 
     //working with one of many elements
     private By cssAllQuickView = By.cssSelector(".quicklook");

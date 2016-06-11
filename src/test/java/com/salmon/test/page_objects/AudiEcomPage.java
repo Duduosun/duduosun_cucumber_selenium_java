@@ -153,7 +153,10 @@ public class AudiEcomPage extends PageObject {
             }
         }
     }
-
+    public void callSearch (String search){
+        waitForExpectedElement(searchInput).sendKeys(search);
+        waitForExpectedElement(searchCTA).click();
+    }
 
 
     public void mouseOverTopCats(String catentry){

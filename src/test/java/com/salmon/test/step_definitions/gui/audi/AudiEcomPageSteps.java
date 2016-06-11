@@ -6,6 +6,7 @@ import com.salmon.test.page_objects.AudiEcomPage;
 import com.salmon.test.page_objects.AudiHomePage;
 import com.salmon.test.page_objects.AudiProductPage;
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.testng.Assert;
@@ -60,7 +61,7 @@ public class AudiEcomPageSteps {
         assertTrue(audiProductPage.stringBreadcrumbs().contains(tcat));
         assertTrue(audiProductPage.stringPageName().contains(tcat));
         assertTrue(audiProductPage.checkPageTitleContains(tcat));
-        audiProductPage.PLPView();
+        audiProductPage.oneOfManyProducts(4);
     }
 
     @When("^User Click Second Level \"([^\"]*)\" CTA$")
@@ -71,5 +72,15 @@ public class AudiEcomPageSteps {
     @When("^User Click Second Level \"([^\"]*)\" CTA via Top Level \"([^\"]*)\" CTA$")
     public void User_Click_Second_Level_CTA_via_Top_Level_CTA(String scat, String tcat) throws Throwable {
         audiEcomPage.clickSecondCAT(scat, tcat);
+    }
+
+    @When("^User Search Audi Store with String \"([^\"]*)\"$")
+    public void User_Search_Audi_Store_with_String(String search) throws Throwable {
+        audiEcomPage.callSearch(search);
+    }
+
+    @And("^Click Switch View CTA$")
+    public void Click_Switch_View_CTA() throws Throwable {
+        audiProductPage.clickSwitchViewCTA();
     }
 }

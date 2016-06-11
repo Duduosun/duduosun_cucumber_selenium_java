@@ -8,6 +8,7 @@ import com.salmon.test.framework.helpers.utils.ConstantsHelper;
 import com.salmon.test.page_objects.AudiEcomPage;
 import com.salmon.test.page_objects.AudiProductPage;
 
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 /**
@@ -30,8 +31,6 @@ public class AudiEcomProductPageSteps extends PageObject {
 
     @And("^Displayed In PLP Grid View$")
     public void Displayed_In_PLP_Grid_View() throws Throwable {
-        //audiProductPage.callPDPElementToView("Tola");
-
         audiProductPage.oneOfManyProducts(0);
         audiProductPage.oneOfManyProducts(4);
         audiProductPage.oneOfManyProducts(7);
@@ -40,7 +39,15 @@ public class AudiEcomProductPageSteps extends PageObject {
 
     @And("^Displayed In PLP Grid View with Product \"([^\"]*)\"$")
     public void Displayed_In_PLP_Grid_View_with_Product(String eproduct) throws Throwable {
-        audiProductPage.clickOneOfManyProducts(eproduct);
+        audiProductPage.PLPView();
+        audiProductPage.plpGridViewActive();
+        assertTrue(audiProductPage.elementPLPGridView().isDisplayed());
+    }
 
+    @And("^Displayed In PLP List View with Product \"([^\"]*)\"$")
+    public void Displayed_In_PLP_List_View_with_Product(String eproduct) throws Throwable {
+        audiProductPage.PLPView();
+        audiProductPage.plpListViewActive();
+        assertTrue(audiProductPage.elementPLPListView().isDisplayed());
     }
 }
