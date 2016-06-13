@@ -59,6 +59,7 @@ public class AudiEcomProductPageSteps extends PageObject {
     @Then("^Audi PDP is Displayed with \"([^\"]*)\"$")
     public void Audi_PDP_is_Displayed_with(String eproduct) throws Throwable {
         audiProductPage.PDPView();
+        assertTrue(audiProductPage.checkPageTitleContains(eproduct));
         assertTrue(audiProductPage.stringBreadcrumbs().contains(eproduct));
         assertTrue(audiProductPage.stringPageName().equals(eproduct));
     }

@@ -18,7 +18,6 @@ Feature: Audi Product Details Page - Category and Search
 
 
   Scenario: Navigate Configurable Product
-    When User Navigate Category
     When User Click Second Level "<scat>" CTA
     And User Click Configurable Product
     Then Audi PDP is Displayed

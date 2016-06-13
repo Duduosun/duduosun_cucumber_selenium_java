@@ -319,7 +319,7 @@ public abstract class PageObject {
 
 
     /**
-     * An expectation for checking that all elements present on the web page that
+     * An expectation for checking ttfashat all elements present on the web page that
      * match the locator are visible. Visibility means that the elements are not
      * only displayed but also have a height and width that is greater than 0.
      *
